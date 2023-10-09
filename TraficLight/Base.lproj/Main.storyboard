@@ -20,30 +20,33 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vxk-wc-Hv7">
                                 <rect key="frame" x="16" y="722" width="343" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p48-XF-Ip4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p48-XF-Ip4">
                                         <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="50"/>
                                         <color key="backgroundColor" red="0.1725490093" green="0.34117650989999998" blue="0.37647059560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="biN-mO-fBm"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Start">
-                                            <color key="baseForegroundColor" red="0.96339512599999999" green="0.99316567450000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" red="0.96339512599999999" green="0.99316567450000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <connections>
                                             <action selector="startButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bv7-SH-h4W"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr7-ly-9GB">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr7-ly-9GB">
                                         <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="50"/>
                                         <color key="backgroundColor" red="0.1725490093" green="0.34117650989999998" blue="0.37647059560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="WzW-mm-GxE"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Auto">
-                                            <color key="baseForegroundColor" red="0.96339512599999999" green="0.99316567450000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Auto">
+                                            <color key="titleColor" red="0.96339512599999999" green="0.99316567450000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="autoButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="YCK-MV-c9E"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -80,6 +83,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="autoButton" destination="Vr7-ly-9GB" id="pAa-eC-X2F"/>
                         <outlet property="greenLight" destination="mG9-XE-Czh" id="7bN-Z4-eV6"/>
                         <outlet property="redLight" destination="FUD-nF-N2C" id="jAT-mz-lNt"/>
                         <outlet property="startButton" destination="p48-XF-Ip4" id="rvk-nI-R9L"/>

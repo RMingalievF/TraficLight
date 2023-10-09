@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class ViewController: UIViewController {
 
     
@@ -17,15 +15,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenLight: UIView!
     
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var autoButton: UIButton!
     
     private var currentLight = CurrentLight.red
     private let lightOn: CGFloat = 1
     private let lightOff: CGFloat = 0.3
     
+    var timer: Timer?
+    var counter = 7
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.layer.cornerRadius = 10
+        autoButton.layer.cornerRadius = 10
         startLight()
         
        
@@ -59,7 +61,22 @@ class ViewController: UIViewController {
         
     }
     
-    
+    @IBAction func autoButtonPressed() {
+
+        if autoButton.currentTitle == "Stop" {
+            timer?.invalidate()
+            autoButton.setTitle("Auto", for: .normal)
+            startLight()
+            counter = 7
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeLight), userInfo: nil, repeats: true)
+            autoButton.setTitle("Stop", for: .normal)
+
+        }
+
+        
+        
+    }
 
 }
 
@@ -77,4 +94,33 @@ extension ViewController {
     }
 }
 
-// MARK: -
+// MARK: - AutoChangeCollor
+
+extension ViewController {
+    
+    @objc func changeLight() {
+        counter -= 1
+        switch counter {
+        case 6:
+            redLight.alpha = lightOn
+            yellowLight.alpha = lightOff
+            greenLight.alpha = lightOff
+        case 5:
+            yellowLight.alpha = lightOn
+        case 4:
+            redLight.alpha = lightOff
+            yellowLight.alpha = lightOff
+            greenLight.alpha = lightOn
+        case 3:
+            greenLight.alpha = lightOff
+        case 2:
+            greenLight.alpha = lightOn
+        case 1:
+            greenLight.alpha = lightOff
+            counter = 7
+        default:
+            break
+        }
+        
+    }
+}
